@@ -16,7 +16,7 @@
   "author": "Lilia Lomaka <llomaka80@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/llomaka/goit-js-hw-10/issues"
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
@@ -24,5 +24,9 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.7.2",
     "sass": "^1.49.7"
+  },
+  "dependencies": {
+    "debounce": "^1.2.1",
+    "lodash.throttle": "^4.1.1"
   }
 }
