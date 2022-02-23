@@ -3,17 +3,21 @@ import { debounce } from "debounce";
 import { Notify } from 'notiflix';
 import { fetchCountries } from './fetchCountries';
 
-refs = {
+const refs = {
   input: document.querySelector('#search-box'),
   list: document.querySelector('.country-list'),
   div: document.querySelector('.country-info'),
 }
 const DEBOUNCE_DELAY = 300;
-inputRef.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
+refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
+ Notify.init({
+    fontSize: '18px',
+  });
 
 function onInput(event) {
   const value = event.target.value.trim();
-
+  if (!value) return Notify.warning('Please enter some text to input field!');
+  console.log(value);
 
 };
 
