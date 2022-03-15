@@ -2,7 +2,7 @@ import './css/styles.css';
 import { debounce } from "debounce";
 import { Notify } from 'notiflix';
 import getRefs from './getRefs';
-import fetchCountries from './fetchCountries';
+import { fetchCountries } from './fetchCountries';
 
 const refs = getRefs();
 const DEBOUNCE_DELAY = 300;
@@ -19,13 +19,15 @@ function onInput(event) {
   fetchCountries(value)
     .then(renderList)
     .catch(onSearchError)
-    .finally(() => event.reset());
+    // .finally(() => event.reset())
+    ;
 };
 
-function renderList(array) {
+function renderList(result) {
+  console.log(result);
   refs.list.innerHTML = '';
   refs.div.innerHTML = '';
-  const markup = array.map(item => `<li>${item}</li>`).join('');
+  const markup = result.map(item => `<li>${item}</li>`).join('');
   refs.list.insertAdjacentHTML('beforeend', markup);
 }
 
