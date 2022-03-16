@@ -18,10 +18,8 @@ function onInput(event) {
   console.log(value);
   fetchCountries(value)
     .then(renderList)
-    .catch(onSearchError)
-    // .finally(() => event.reset())
-    ;
-  event.reset()
+    .catch(onSearchError);
+  event.reset();
 };
 
 function renderList(result) {
