@@ -19,7 +19,7 @@ function onInput(event) {
   fetchCountries(value)
     .then(renderList)
     .catch(onSearchError)
-    // .finally(() => event.reset())
+    .finally(() => event.reset())
     ;
 };
 
@@ -27,7 +27,7 @@ function renderList(result) {
   console.log(result);
   refs.list.innerHTML = '';
   refs.div.innerHTML = '';
-  const markup = result.map(item => `<li>${item}</li>`).join('');
+  const markup = result.map(item => `<li>${item.flags.svg, item.name.official}</li>`).join('');
   refs.list.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -39,5 +39,5 @@ function renderInfo(array) {
 }
 
 function onSearchError(error) {
-  Nitify.failure('Oops, there is no country with that name');
+  Notify.failure('Oops, there is no country with that name');
 }
