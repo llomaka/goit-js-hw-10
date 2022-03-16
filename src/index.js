@@ -14,7 +14,11 @@ Notify.init({ fontSize: '18px', });
 function onInput(event) {
   event.preventDefault();
   const value = event.target.value.trim();
-  if (!value) return Notify.warning('Please enter some text to input field!');
+  if (!value) {
+    refs.list.innerHTML = '';
+    refs.div.innerHTML = '';
+    return Notify.warning('Please enter some text to input field!');
+  }
   fetchCountries(value)
     .then(render)
     .catch(onSearchError)
@@ -22,9 +26,8 @@ function onInput(event) {
 };
 
 function render(array) {
-  console.log(array);
   if (array.length > 10) { Notify.info('Too many matches found. Please enter a more specific name.'); }
-  else if (array.length > 1 && array.length < 10) { renderList(array); }
+  else if (array.length > 1 && array.length <= 10) { renderList(array); }
   else if (array.length = 1) { renderInfo(array); }
 }
 
