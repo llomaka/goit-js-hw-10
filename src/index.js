@@ -21,8 +21,7 @@ function onInput(event) {
   }
   fetchCountries(value)
     .then(render)
-    .catch(onSearchError)
-    .finally(()=> event.reset());
+    .catch(onSearchError);
 };
 
 function render(array) {
@@ -41,7 +40,7 @@ function renderList(array) {
 function renderInfo(array) {
   refs.div.innerHTML = '';
   refs.list.innerHTML = '';
-  const markup = array.map(item => `<h1><img width="60" src="${item.flags.svg}">${item.name.official}</h1><ul><li><h2>Capital:</h2> ${item.capital}</li><li><h2>Population:</h2> ${item.population.toLocaleString()}</li><li><h2>Languages:</h2> ${Object.values(item.languages).join(", ")}</li></ul>`);
+  const markup = array.map(item => `<h1><img width="60" src="${item.flags.svg}">${item.name.official}</h1><ul><li><h2>Capital:</h2> ${item.capital.join(", ")}</li><li><h2>Population:</h2> ${item.population.toLocaleString()}</li><li><h2>Languages:</h2> ${Object.values(item.languages).join(", ")}</li></ul>`);
   refs.div.insertAdjacentHTML('beforeend', markup);
 }
 
