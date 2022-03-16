@@ -19,8 +19,9 @@ function onInput(event) {
   fetchCountries(value)
     .then(renderList)
     .catch(onSearchError)
-    .finally(() => event.reset())
+    // .finally(() => event.reset())
     ;
+  event.reset()
 };
 
 function renderList(result) {
