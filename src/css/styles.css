@@ -18,6 +18,24 @@ ul {
   list-style: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 #search-box {
   font: inherit;
   padding: 8px;
@@ -32,7 +50,21 @@ ul {
   background-color: #ece7fc;
 }
 
-.country-info {
+li,
+h1 {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.country-info h1 {
+  font-size: 2rem;
+  line-height: 2;
+}
+
+.country-info,
+.country-info li,
+.country-info h2 {
   font-size: 1.5rem;
   line-height: 2;
   color: #031506;
