@@ -27,7 +27,7 @@ function renderList(result) {
   console.log(result);
   refs.list.innerHTML = '';
   refs.div.innerHTML = '';
-  const markup = result.map(item => `<li>${item.flags.svg, item.name.official}</li>`).join('');
+  const markup = result.map(item => `<li><svg width="20" height="20"><use href="${item.flags.svg}"></use></svg> ${item.name.official}</li>`).join('');
   refs.list.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -40,4 +40,5 @@ function renderInfo(array) {
 
 function onSearchError(error) {
   Notify.failure('Oops, there is no country with that name');
+  console.log(error);
 }
